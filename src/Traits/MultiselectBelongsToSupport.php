@@ -1,6 +1,6 @@
 <?php
 
-namespace Outl1ne\MultiselectField\Traits;
+namespace Aqjw\MultiselectField\Traits;
 
 use RuntimeException;
 use Laravel\Nova\Nova;
@@ -21,7 +21,7 @@ trait MultiselectBelongsToSupport
      * Makes the field to manage a BelongsTo relationship.
      *
      * @param string $resourceClass The Nova Resource class for the other model.
-     * @return \Outl1ne\MultiselectField\Multiselect
+     * @return \Aqjw\MultiselectField\Multiselect
      **/
     public function belongsTo($resourceClass, $async = true)
     {
@@ -84,7 +84,7 @@ trait MultiselectBelongsToSupport
      * Makes the field to manage a BelongsToMany relationship.
      *
      * @param string $resourceClass The Nova Resource class for the other model.
-     * @return \Outl1ne\MultiselectField\Multiselect
+     * @return \Aqjw\MultiselectField\Multiselect
      **/
     public function belongsToMany($resourceClass, $async = true)
     {

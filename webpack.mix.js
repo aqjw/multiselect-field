@@ -10,7 +10,7 @@ mix
       vue: 'Vue',
     },
     output: {
-      uniqueName: 'outl1ne/nova-multiselect-field',
+      uniqueName: 'aqjw/multiselect-field',
     },
   })
   .alias({

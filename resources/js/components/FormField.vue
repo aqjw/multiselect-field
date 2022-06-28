@@ -1,7 +1,7 @@
 <template>
   <DefaultField :field="field" :showHelpText="showHelpText" :errors="errors">
     <template #field>
-      <div class="outl1ne-multiselect-field flex flex-col">
+      <div class="aqjw-multiselect-field flex flex-col">
         <!-- Multi select field -->
         <multiselect
           v-if="!reorderMode"
@@ -396,7 +396,7 @@ $slate900: #0f172a;
 $red400: #f87171;
 $red500: #ef4444;
 
-.outl1ne-multiselect-field {
+.aqjw-multiselect-field {
   .multiselect__tags {
     --tw-border-opacity: 1;
     border-width: 1px;

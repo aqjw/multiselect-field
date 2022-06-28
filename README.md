@@ -1,7 +1,7 @@
 # Nova Multiselect
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/outl1ne/nova-multiselect-field.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-multiselect-field)
-[![Total Downloads](https://img.shields.io/packagist/dt/outl1ne/nova-multiselect-field.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-multiselect-field)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/aqjw/multiselect-field.svg?style=flat-square)](https://packagist.org/packages/aqjw/multiselect-field)
+[![Total Downloads](https://img.shields.io/packagist/dt/aqjw/multiselect-field.svg?style=flat-square)](https://packagist.org/packages/aqjw/multiselect-field)
 
 This [Laravel Nova](https://nova.laravel.com) package adds a multiselect to Nova's arsenal of fields.
 
@@ -34,7 +34,7 @@ This [Laravel Nova](https://nova.laravel.com) package adds a multiselect to Nova
 Install the package in a Laravel Nova project via Composer:
 
 ```bash
-composer require outl1ne/nova-multiselect-field
+composer require aqjw/multiselect-field
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ composer require outl1ne/nova-multiselect-field
 The field is used similarly to Nova's native Select field. The field type in the database should be text-based (ie `string`, `text` or `varchar`), selected values are stored as a stringified JSON array.
 
 ```php
-use Outl1ne\MultiselectField\Multiselect;
+use Aqjw\MultiselectField\Multiselect;
 
 public function fields(Request $request)
 {
@@ -175,7 +175,7 @@ Possible options you can pass to the field using the option name as a function, 
 The translations file can be published by using the following publish command:
 
 ```bash
-php artisan vendor:publish --provider="Outl1ne\MultiselectField\FieldServiceProvider" --tag="translations"
+php artisan vendor:publish --provider="Aqjw\MultiselectField\FieldServiceProvider" --tag="translations"
 ```
 
 You can then edit the strings to your liking.
