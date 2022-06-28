@@ -211,9 +211,7 @@ export default {
     fill(formData) {
       if (this.isMultiselect) {
         if (this.value && this.value.length) {
-          this.value.forEach((v, i) => {
-            formData.append(`${this.field.attribute}[${i}]`, v.value);
-          });
+          formData.append(this.field.attribute, this.value.map(e => e.value));
         } else {
           formData.append(this.field.attribute, '');
         }

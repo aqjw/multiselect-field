@@ -56,18 +56,18 @@ trait MultiselectBelongsToSupport
             $modelClass = get_class($model);
 
             // Validate
-            if (!method_exists($model, $attribute)) {
-                throw new RuntimeException("{$modelClass}::{$attribute} must be a relation method.");
+            if (!method_exists($model, $requestAttribute)) {
+                throw new RuntimeException("{$modelClass}::{$requestAttribute} must be a relation method.");
             }
 
-            $relation = $model->{$attribute}();
+            $relation = $model->{$requestAttribute}();
 
             if (!method_exists($relation, 'associate')) {
-                throw new RuntimeException("{$modelClass}::{$attribute} does not appear to model a BelongsTo relationship.");
+                throw new RuntimeException("{$modelClass}::{$requestAttribute} does not appear to model a BelongsTo relationship.");
             }
 
             // Sync
-            $relation->associate($resourceClass::newModel()::find($request->get($attribute)));
+            $relation->associate($resourceClass::newModel()::find($request->input($attribute)));
         });
 
         return $this;
@@ -109,20 +109,25 @@ trait MultiselectBelongsToSupport
         });
 
         $this->fillUsing(function ($request, $model, $requestAttribute, $attribute) {
-            $model::saved(function ($model) use ($attribute, $request) {
+            $model::saved(function ($model) use ($attribute, $requestAttribute, $request) {
                 // Validate
-                if (!method_exists($model, $attribute)) {
-                    throw new RuntimeException("{$model}::{$attribute} must be a relation method.");
+                if (!method_exists($model, $requestAttribute)) {
+                    throw new RuntimeException("{$model}::{$requestAttribute} must be a relation method.");
                 }
 
-                $relation = $model->{$attribute}();
+                $relation = $model->{$requestAttribute}();
 
                 if (!method_exists($relation, 'sync')) {
-                    throw new RuntimeException("{$model}::{$attribute} does not appear to model a BelongsToMany or MorphsToMany.");
+                    throw new RuntimeException("{$model}::{$requestAttribute} does not appear to model a BelongsToMany or MorphsToMany.");
+                }
+
+                $values = [];
+                if ($request->has($attribute)) {
+                    $values = array_filter(explode(',', $request->input($attribute)));
                 }
 
                 // Sync
-                $relation->sync($request->get($attribute) ?: []);
+                $relation->sync($values);
             });
         });
 
@@ -223,19 +228,9 @@ trait MultiselectBelongsToSupport
         return false;
     }
 
-    // Implement abstract methods
-    public function relationshipName()
-    {
-        return 'hoho';
-    }
+    // Abstract method
+    public function relationshipName() {}
 
-    /**
-     * Get the relationship type.
-     *
-     * @return string
-     */
-    public function relationshipType()
-    {
-        return 'haha';
-    }
+    // Abstract method
+    public function relationshipType() {}
 }
