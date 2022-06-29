@@ -34,7 +34,7 @@ This [Laravel Nova](https://nova.laravel.com) package adds a multiselect to Nova
 Install the package in a Laravel Nova project via Composer:
 
 ```bash
-composer require aqjw/multiselect-field
+composer require aqjw/nova-multiselect-field
 ```
 
 ## Usage
