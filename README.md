@@ -1,7 +1,7 @@
 # Nova Multiselect
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/aqjw/multiselect-field.svg?style=flat-square)](https://packagist.org/packages/aqjw/multiselect-field)
-[![Total Downloads](https://img.shields.io/packagist/dt/aqjw/multiselect-field.svg?style=flat-square)](https://packagist.org/packages/aqjw/multiselect-field)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/aqjw/nova-multiselect-field.svg?style=flat-square)](https://packagist.org/packages/aqjw/nova-multiselect-field)
+[![Total Downloads](https://img.shields.io/packagist/dt/aqjw/nova-multiselect-field.svg?style=flat-square)](https://packagist.org/packages/aqjw/nova-multiselect-field)
 
 This [Laravel Nova](https://nova.laravel.com) package adds a multiselect to Nova's arsenal of fields.
 
